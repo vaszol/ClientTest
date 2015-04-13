@@ -1,5 +1,6 @@
 package ru.vaszol.logic;
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -14,7 +15,7 @@ public class Client {
     private String ip4;
     private String hostAddress;
 
-    public Client() throws UnknownHostException {
+    public Client() throws IOException {
         addr = InetAddress.getLocalHost();
         name=addr.getHostName();
         ip = addr.getAddress();
@@ -26,6 +27,19 @@ public class Client {
         }
         System.out.println(addr.getHostAddress());
         System.out.println(ip4);**/
+
+        System.out.println("CanonicalHostName:   " + addr.getCanonicalHostName());
+        System.out.println("AnyLocalAddress:     " + addr.isAnyLocalAddress());
+        System.out.println("LinkLocalAddress:    " + addr.isLinkLocalAddress());
+        System.out.println("LoopbackAddress:     " + addr.isLoopbackAddress());
+        System.out.println("MCGlobal:            " + addr.isMCGlobal());
+        System.out.println("MCLinkLocal:         " + addr.isMCLinkLocal());
+        System.out.println("MCNodeLocal:         " + addr.isMCNodeLocal());
+        System.out.println("MCOrgLocal:          " + addr.isMCOrgLocal());
+        System.out.println("MCSiteLocal:         " + addr.isMCSiteLocal());
+        System.out.println("MulticastAddress:    " + addr.isMulticastAddress());
+        System.out.println("Reachable:           " + addr.isReachable(2000));
+        System.out.println("SiteLocalAddress:    " + addr.isSiteLocalAddress());
     }
 
     public String getIp4() {
